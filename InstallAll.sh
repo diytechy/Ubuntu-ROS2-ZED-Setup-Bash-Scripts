@@ -1,3 +1,8 @@
+if [ "$(whoami)" == "root" ]; then
+        echo "Script must not be run as root"
+        exit 255
+fi
+
 read -t 1 -p "****************************************"$'\n'
 read -t 1 -p "Upgrading ubuntu..."$'\n'
 sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe"
@@ -65,6 +70,6 @@ sudo apt install python3-colcon-common-extensions
 
 read -t 1 -p "****************************************"$'\n'
 read -t 1 -p "Creating ROS2 Workspace and building..."$'\n'
-sudo mkdir -p /home/ros2_humble/
-cd /home/ros2_humble/
-sudo colcon build --symlink-install
+mkdir -p ~/ros2_humble/
+cd ~/ros2_humble/
+colcon build --symlink-install
