@@ -1,3 +1,4 @@
+#Run as "bash InstallAll.sh"
 if [ "$(whoami)" == "root" ]; then
         echo "Script must not be run as root"
         exit 255
